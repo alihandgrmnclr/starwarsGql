@@ -37,21 +37,26 @@ export const getAllPeopleCount = async () => {
   return apiCall()
 }
 
-export const getAllPeople = async (first, after) => {
-  const apiCall = await graph(`query allPeople($first: Int, $after: String) {
-    allPeople(first: $first, after: $after) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
+export const getAllPeople = async (first, last, before, after) => {
+  const apiCall = await graph(`query People($after: String, $before: String, $first: Int, $last: Int) {
+    allPeople(after: $after, before: $before, first: $first, last: $last) {
       people {
         name
         id
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
     }
   }`)
+  console.log(first, last, before, after)
   return apiCall({
     first,
+    last,
+    before,
     after
   })
 }

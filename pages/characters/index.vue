@@ -15,7 +15,7 @@
           </NuxtLink>
         </div>
       </template>
-      <Pagination class="mt" :amount="allPeopleCount"></Pagination>
+      <Pagination :amount="allPeopleCount" :perPage=20 @changePage="handlePage"></Pagination>
     </div>
   </div>
 </template>
@@ -23,32 +23,43 @@
 <script setup>
 import { getAllPeople, getAllPeopleCount } from '@/service/apiService'
 
+const charsPerPage = 20
 const people = ref([])
 const loading = ref(true)
 const charactersAmount = ref(0)
-const hasNextPage = ref(false)
-const endCursor = ref(null)
 const allPeopleCount = ref(null)
 
-onMounted(async () => {
-  // try {
-  //   const response = await getAllPeople().then(data => data.allPeople.people)
-  //   people.value = response
-  //   charactersAmount.value = people.value.length
-  // } catch (error) {
-  //   console.error(error)
-  // } finally {
-  //   loading.value = false
+const pageInfo = ref(null)
+const currentPage = ref(1)
+
+const handlePage = async (page) => {
+  if (currentPage.value < page.page + 1) {
+    const response = await getAllPeople(20, null, null, pageInfo.value.endCursor)
+    people.value = response.allPeople.people
+    pageInfo.value = response.allPeople.pageInfo
+    currentPage.value ++
+  } else if (currentPage.value > page.page + 1) {
+    const response = await getAllPeople(null, 20, pageInfo.value.startCursor, null)
+    people.value = response.allPeople.people
+    pageInfo.value = response.allPeople.pageInfo
+    currentPage.value --
+  }
+  
+  // if ( currentPage.value < page.page + 2) {
+  //   const response = await getAllPeople(null, 20, null, null)
   // }
+}
+
+
+onMounted(async () => {
   try {
-    const response = await getAllPeople(20, null)
+    const response = await getAllPeople(charsPerPage, null)
     const data = response.allPeople
+    pageInfo.value = data.pageInfo
     people.value = data.people
 
     allPeopleCount.value = await getAllPeopleCount().then(people => people.allPeople.totalCount)
     charactersAmount.value = people.value.length
-    hasNextPage.value = data.pageInfo.hasNextPage
-    endCursor.value = data.pageInfo.endCursor
   } catch (error) {
     console.error(error)
   } finally {
