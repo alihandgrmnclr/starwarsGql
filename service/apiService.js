@@ -52,7 +52,6 @@ export const getAllPeople = async (first, last, before, after) => {
       }
     }
   }`)
-  console.log(first, last, before, after)
   return apiCall({
     first,
     last,
@@ -61,22 +60,70 @@ export const getAllPeople = async (first, last, before, after) => {
   })
 }
 
-export const getAllVehicles = async () => {
-  const apiCall = await graph(`query getAllVehicles {
+export const getAllVehiclesCount = async () => {
+  const apiCall = await graph(`query allVehiclesCount {
     allVehicles {
-      vehicles {
-        name
-        vehicleClass
-        id
-      }
+      totalCount
     }
   }`)
   return apiCall()
 }
 
-export const getAllStarShips = async () => {
-  const apiCall = await graph(`query allStarShips {
+export const getAllVehicles = async (first, last, before, after) => {
+  const apiCall = await graph(`query Vehicles($after: String, $before: String, $first: Int, $last: Int) {
+    allVehicles(after: $after, before: $before, first: $first, last: $last) {
+      vehicles {
+        name
+        vehicleClass
+        id
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+  }`)
+  return apiCall({
+    first,
+    last,
+    before,
+    after
+  })
+}
+
+export const getVehicle = async (id) => {
+  const apiCall = await graph(`query getVehicle($vehicleId: ID) {
+    vehicle(id: $vehicleId) {
+      crew
+      cargoCapacity
+      model
+      maxAtmospheringSpeed
+      name
+      passengers
+      vehicleClass
+      length
+      manufacturers
+    }
+  }`)
+  return apiCall({
+    vehicleId: id
+  })
+}
+
+export const getAllStarshipsCount = async () => {
+  const apiCall = await graph(`query allStarshipsCount {
     allStarships {
+      totalCount
+    }
+  }`)
+  return apiCall()
+}
+
+export const getAllStarships = async (first, last, before, after) => {
+  const apiCall = await graph(`query allStarShips ($after: String, $before: String, $first: Int, $last: Int) {
+    allStarships (after: $after, before: $before, first: $first, last: $last) {
       starships {
         id
         name
@@ -89,21 +136,71 @@ export const getAllStarShips = async () => {
         passengers
         model
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+  }`)
+  return apiCall({
+    first,
+    last,
+    before,
+    after
+  })
+}
+
+export const getStarship = async (id) => {
+  const apiCall = await graph(`query getStarship($starshipId: ID) {
+    starship(id: $starshipId) {
+      crew
+      cargoCapacity
+      model
+      maxAtmospheringSpeed
+      name
+      passengers
+      starshipClass
+      length
+      manufacturers
+    }
+  }`)
+  return apiCall({
+    starshipId: id
+  })
+}
+
+export const getAllPlanetsCount = async () => {
+  const apiCall = await graph(`query AllPlanetsCount {
+    allPlanets {
+      totalCount
     }
   }`)
   return apiCall()
 }
 
-export const getAllPlanets = async () => {
-  const apiCall = await graph(`query getAllPlanets {
-    allPlanets {
+export const getAllPlanets = async (first, last, before, after) => {
+  const apiCall = await graph(`query getAllPlanets($after: String, $before: String, $first: Int, $last: Int) {
+    allPlanets(after: $after, before: $before, first: $first, last: $last) {
       planets {
         name
         id
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
     }
   }`)
-  return apiCall()
+  return apiCall({
+    first,
+    last,
+    before,
+    after
+  })
 }
 
 export const getFilm = async (id) => {
@@ -160,24 +257,4 @@ export const getPlanet = async (id) => {
     return apiCall({
       planetId: id
     })
-}
-
-export const getVehicle = async (id) => {
-  const apiCall = await graph(`query getVehicle($vehicleId: ID) {
-    vehicle(id: $vehicleId) {
-      crew
-      cargoCapacity
-      model
-      maxAtmospheringSpeed
-      name
-      passengers
-      vehicleClass
-      length
-      manufacturers
-    }
-  }`)
-    return apiCall({
-      vehicleId: id
-    })
-
 }

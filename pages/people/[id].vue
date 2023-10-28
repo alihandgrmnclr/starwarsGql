@@ -3,7 +3,7 @@
     <div v-if="loading">
       <Loading></Loading>
     </div>
-    <div v-else>
+    <div class="informations" v-else>
       <div >
         <p class="page-header">{{ person.name }}</p>
       </div>
@@ -48,5 +48,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-
+.informations {
+}
 </style>

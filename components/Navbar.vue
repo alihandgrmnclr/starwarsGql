@@ -6,8 +6,9 @@
     <div class="navbar_links">
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink to="/movies">Movies</NuxtLink>
-      <NuxtLink to="/characters">Characters</NuxtLink>
+      <NuxtLink to="/people">Characters</NuxtLink>
       <NuxtLink to="/vehicles">Vehicles</NuxtLink>
+      <NuxtLink to="/starships">Starships</NuxtLink>
       <NuxtLink to="/planets">Planets</NuxtLink>
     </div>
   </div>
@@ -29,7 +30,7 @@
 }
 
 .navbar_links {
-  @apply flex gap-3;
+  @apply flex gap-2 text-xs mt-4 sm:mt-0 sm:gap-3 sm:text-base;
 }
 
 a {

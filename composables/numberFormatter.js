@@ -1,4 +1,4 @@
 export const formatNumber = (number) => {
-  const fixedNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-  return fixedNumber
+  if (!number) return 'unknown'
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 } 
