@@ -16,7 +16,7 @@ const toggleSaber = () => {
 }
 
 onMounted(() => {
-  props.color === 'red'  ? saberColor.value = '#03e9f4' : saberColor.value = '#e9033f' 
+  props.color === 'red'  ? saberColor.value = '#e9033f' : saberColor.value = '#03e9f4' 
 })
 </script>
 <style scoped>
@@ -25,14 +25,16 @@ onMounted(() => {
   @apply flex justify-start h-[100px] items-center relative;
 }
 .handle {
-  @apply cursor-pointer w-[240px] h-[900px] z-10 rotate-90 scale-[0.1];
-  @apply sm:scale-[0.25];
+  @apply cursor-pointer w-[240px] h-[900px] z-10 rotate-90;
+  @apply scale-[0.10];
+  /* scale: 0.5; */
   background-image: url(/images/saber.png);
+  filter: brightness(0.75)
+
 }
 
 .light-saber {
-  @apply absolute mt-2 ml-[150px] rounded-xl h-2 bg-white;
-  @apply sm:ml-[210px] sm:h-[22px] sm:mt-3;
+  @apply absolute ml-[160px] mt-1 rounded-xl h-[9px] bg-white;
   box-shadow: 0 0 5px v-bind(saberColor), 0 0 25px v-bind(saberColor), 0 0 50px v-bind(saberColor),
   0 0 100px v-bind(saberColor);
   animation: ignite 0.2s ease-in-out forwards;
@@ -43,7 +45,7 @@ onMounted(() => {
     @apply opacity-0 w-0;
   }
   100% {
-    @apply opacity-100 w-[45vw] max-w-[800px];
+    @apply opacity-100 w-[300px] max-w-[300px];
   }
 }
 </style>

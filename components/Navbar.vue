@@ -22,7 +22,7 @@
 
 
 .navbar {
-  @apply flex flex-col sm:flex-row justify-around items-center gap-1 mt-[50px] mb-12;
+  @apply flex flex-col sm:flex-row justify-around items-center gap-1 mt-[20px] mb-12;
 }
 
 .navbar_img {
