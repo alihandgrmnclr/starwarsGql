@@ -4,7 +4,8 @@
     <Lightsaber
       class="darthvader_saber"
       color="red"
-      style="transform: rotate(200deg)"
+      style="transform: rotate(195deg)"
+      saber-length="280px"
     >
     </Lightsaber>
   </div>
@@ -16,12 +17,10 @@
 
 <style lang="scss" scoped>
 .darthvader {
-  @apply w-full relative hidden sm:flex;
-  &_char {
-    @apply absolute right-0;
-  }
+  @apply w-[350px] relative hidden sm:flex;
   &_saber {
-    @apply absolute right-72 top-52;
+    @apply absolute top-[140px] right-[50%];
+    scale: .75; 
   }
 }
 </style>

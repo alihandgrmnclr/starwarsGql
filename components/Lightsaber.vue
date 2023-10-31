@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['color'])
+const props = defineProps(['color', 'saberLength'])
 const showSaber = ref(false)
 const saberColor = ref('#03e9f4')
 const toggleSaber = () => {
@@ -22,15 +22,13 @@ onMounted(() => {
 <style scoped>
 
 .container {
-  @apply flex justify-start h-[100px] items-center relative;
+  @apply flex justify-start h-[100px] items-center relative z-[1];
 }
 .handle {
   @apply cursor-pointer w-[240px] h-[900px] z-10 rotate-90;
   @apply scale-[0.10];
-  /* scale: 0.5; */
   background-image: url(/images/saber.png);
   filter: brightness(0.75)
-
 }
 
 .light-saber {
@@ -45,7 +43,7 @@ onMounted(() => {
     @apply opacity-0 w-0;
   }
   100% {
-    @apply opacity-100 w-[300px] max-w-[300px];
+    @apply opacity-100 w-[v-bind(saberLength)];
   }
 }
 </style>
