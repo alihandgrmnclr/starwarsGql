@@ -17,7 +17,7 @@ const toggleDark = useToggle(isDark)
 
 <style lang="scss" scoped>
 .toggle {
-  @apply cursor-pointer relative w-24 h-10 rounded-full ;
+  @apply cursor-pointer relative w-24 h-10 rounded-full z-20;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   &_dark {
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.25),

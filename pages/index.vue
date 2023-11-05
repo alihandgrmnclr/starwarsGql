@@ -37,7 +37,7 @@ const isDark = useDark()
   }
 }
   .char {
-    @apply hidden right-[10%] top-40;
+    @apply flex justify-center right-[10%] top-40;
     @apply sm:flex;
     @apply lg:absolute ;
     @apply lg:left-[40%];

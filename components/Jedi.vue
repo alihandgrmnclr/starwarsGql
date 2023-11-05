@@ -3,7 +3,7 @@
     <img class="jedi_char" src="/images/jedi.png" alt="">
     <Lightsaber
       class="jedi_saber"
-      saber-length="1200px"
+      saber-length="1000px"
       :saberColor="jediSaberColor"
     >
     </Lightsaber>
@@ -16,15 +16,13 @@ const jediSaberColor = localStorage.getItem('jediSaberColor') || '#03e9f4';
 
 <style lang="scss" scoped>
 .jedi {
-  @apply relative flex left-[15%];
-  @apply sm:left-[10%] sm:mt-10;
-  @apply md:left-[15%];
-  @apply xl:left-[1%];
+  @apply hidden xs:flex scale-50 relative sm:scale-[.75] xl:scale-100;
+  @apply sm:mt-10;
   &_char {
     @apply w-[450px] mt-10 z-10 pointer-events-none;
   }
   &_saber {
-    @apply absolute top-[268px] left-[69%] scale-[0.3] rotate-[290deg];
+    @apply absolute top-[300px] right-[-13px] sm:top-[448px] sm:right-[8px] scale-[0.4] sm:scale-[0.5] rotate-[290deg];
   }
 }
 </style>

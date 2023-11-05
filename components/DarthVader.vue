@@ -16,9 +16,9 @@ const darthSaberColor = localStorage.getItem('darthSaberColor') || '#e9033f';
 
 <style lang="scss" scoped>
 .darthvader {
-  @apply relative flex left-[35%];
-  @apply sm:scale-[0.8] sm:left-[35%];
-  @apply lg:scale-[1] lg:left-[5%] lg:ml-32;
+  @apply relative xs:flex hidden scale-50;
+  @apply sm:scale-[0.8];
+  @apply lg:scale-[1] lg:ml-32;
   &_char {
     @apply w-[250px] pointer-events-none z-10;
   }
