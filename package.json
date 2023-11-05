@@ -10,6 +10,9 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^0.8.3",
+    "@nuxtjs/color-mode": "^3.3.0",
+    "@vueuse/core": "^10.5.0",
+    "@vueuse/nuxt": "^10.5.0",
     "autoprefixer": "^10.4.15",
     "nuxt": "^3.7.3",
     "postcss": "^8.4.30",
@@ -20,5 +23,8 @@
     "graphql.js": "^0.6.8",
     "lodash": "^4.17.21",
     "primevue": "^3.34.1"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

@@ -1,10 +1,10 @@
 <template>
-  <div class="movie">
+  <div class="movie page">
     <div v-if="loading">
       <Loading></Loading>
     </div>
-    <div v-else>
-    <h1 class="page-header">{{ film?.title }}</h1>
+    <div class="listItem" v-else>
+      <h1 class="page-header">{{ film?.title }}</h1>
       <p>Release Date: {{ film?.releaseDate }}</p>
       <p>Director: {{ film?.director }}</p>
       <div>Producers: 
@@ -14,7 +14,7 @@
       </div>
       <h4 class="my-5">Opening Crawl</h4>
       <p>{{ text }} <span class="text blinking-element"></span></p>
-      <Btn @click="regenerateText">Regenerate Crawl</Btn>
+      <Btn class="w-60" @click="regenerateText">Regenerate Crawl</Btn>
     </div>
   </div>
 </template>
@@ -63,7 +63,7 @@ onMounted(async () => {
 
 <style scoped>
 .movie {
-  @apply w-full;
+  @apply w-full min-h-[calc(100vh-280px)];
 }
 .text {
   @apply ml-[2px] border-solid border-r-[1px];

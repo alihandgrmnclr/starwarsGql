@@ -97,12 +97,12 @@ function lastPage () {
 </script>
 <style scoped>
 .paginator {
-  @apply flex gap-4 justify-center items-center text-gray-400;
+  @apply flex gap-4 justify-center items-center sm:text-lg;
 }
 .btn {
   @apply hover:bg-white rounded-full w-12 h-12 hover:border border-blue-400;
 }
 .disabled {
-  @apply text-gray-600 cursor-not-allowed hover:bg-transparent hover:border-0;
+  @apply text-gray-300 cursor-not-allowed hover:bg-transparent hover:border-0;
 }
 </style>

@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+export default defineNuxtConfig ({
+  ssr: false,
   devtools: { enabled: true },
+  modules: [
+    '@vueuse/nuxt',
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -8,7 +12,7 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    '~/assets/css/main.css',
+    '~/assets/css/main.scss',
     'primevue/resources/themes/lara-light-blue/theme.css'
   ],
   build: {

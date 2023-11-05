@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="page">
     <div v-if="loading">
       <Loading></Loading>
     </div>
-    <div class="informations" v-else>
+    <div class="listItem" v-else>
       <div >
         <p class="page-header">{{ person.name }}</p>
       </div>
@@ -46,8 +46,3 @@ onMounted(async () => {
   }
 })
 </script>
-
-<style scoped>
-.informations {
-}
-</style>

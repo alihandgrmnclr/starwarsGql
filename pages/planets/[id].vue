@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="page">
     <div v-if="loading">
       <Loading></Loading>
     </div>
-    <div v-else>
+    <div class="listItem" v-else>
       <h1 class="page-header">{{ planet.name }}</h1>
       <div>Climate:
         <span v-for="climate, index in climates" :key="climate">
@@ -25,7 +25,7 @@
 
 <script setup>
 import  { getPlanet } from '@/service/apiService'
-import { formatNumber } from '@/composables/numberFormatter'
+import { formatNumber } from '@/utils/numberFormatter'
 
 const idParam = useRoute().params.id
 const loading = ref(true)

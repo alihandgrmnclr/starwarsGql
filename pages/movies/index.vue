@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="page">
     <h1 class="page-header">Movies</h1>
     <div v-if="loading">
       <Loading></Loading>
     </div>
-    <div v-else>
+    <div class="listItem" v-else>
       <template v-for="movie in movies" :key="movie">
         <div>
           <NuxtLink :to="`movies/${movie.id}`" class="movie_link">
-            <p>{{ movie.title }}, {{ movie.releaseDate }}</p>
+            <p class="listItem">{{ movie.title }}, {{ movie.releaseDate }}</p>
           </NuxtLink>
         </div>
       </template>
@@ -36,10 +36,7 @@ onMounted(async () => {
 
 <style scoped>
 .movie_link {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  display: inline-block;
+  @apply inline-block;
 }
 
 </style>

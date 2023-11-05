@@ -13,8 +13,6 @@
 
 <script setup>
 import { debounce } from 'lodash'
-//
-import SearchIcon from '@/assets/icons/SearchIcon.vue'
 
 const props = defineProps({
   data: {
@@ -28,8 +26,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['filteredData', 'noResult', 'update:modelValue'])
-
-const isSearching = ref(false)
 
 const filteredData = debounce(() => {
   const searchTerm = props.modelValue.toLowerCase()

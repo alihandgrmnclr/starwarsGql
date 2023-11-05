@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="page">
     <div v-if="loading">
       <Loading></Loading>
     </div>
-    <div v-else>
+    <div class="listItem" v-else>
       <h1 class="page-header">{{ starship.name }}</h1>
       <p>Vehicle Class: {{ starship.starshipClass }}</p>
       <p>Crew: {{ starship.crew || '0' }}</p>

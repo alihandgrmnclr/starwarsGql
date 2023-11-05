@@ -12,6 +12,6 @@
 
 <style scoped>
 .btn {
-  @apply my-2 bg-yellow-400 hover:bg-yellow-500 rounded-full p-4 text-black uppercase;
+  @apply w-full my-2 bg-orange-400 hover:bg-orange-500 rounded-full p-4 text-black uppercase;
 }
 </style>

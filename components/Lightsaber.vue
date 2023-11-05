@@ -5,34 +5,35 @@
       <div v-if="showSaber" class="light-saber"></div>
     </div>
   </div>
+
 </template>
 
 <script setup>
-const props = defineProps(['color', 'saberLength'])
-const showSaber = ref(false)
-const saberColor = ref('#03e9f4')
+const props = defineProps(['saberLength', 'saberColor'])
+const showSaber = ref(true)
+const saberColor = ref(props.saberColor)
+
 const toggleSaber = () => {
   showSaber.value = !showSaber.value
 }
 
-onMounted(() => {
-  props.color === 'red'  ? saberColor.value = '#e9033f' : saberColor.value = '#03e9f4' 
+watch(() => props.saberColor, (newColor) => {
+  saberColor.value = newColor
 })
 </script>
 <style scoped>
 
 .container {
-  @apply flex justify-start h-[100px] items-center relative z-[1];
+  @apply flex h-[100px] justify-start items-center relative z-[1];
 }
 .handle {
-  @apply cursor-pointer w-[240px] h-[900px] z-10 rotate-90;
-  @apply scale-[0.10];
-  background-image: url(/images/saber.png);
+  @apply cursor-pointer w-[104px] h-[436px] z-10 rotate-90;
+  background-image: url(/images/saber1.png);
   filter: brightness(0.75)
 }
 
 .light-saber {
-  @apply absolute ml-[160px] mt-1 rounded-xl h-[9px] bg-white;
+  @apply absolute ml-[180px] mt-2 rounded-full h-[46px] bg-white;
   box-shadow: 0 0 5px v-bind(saberColor), 0 0 25px v-bind(saberColor), 0 0 50px v-bind(saberColor),
   0 0 100px v-bind(saberColor);
   animation: ignite 0.2s ease-in-out forwards;

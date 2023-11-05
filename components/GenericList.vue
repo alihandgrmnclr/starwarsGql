@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <div class="flex justify-between">
       <div class="page-header w-full">{{ props.title }}</div>
       <Filter
@@ -18,20 +18,22 @@
         <p>There is no result for that search</p>
       </template>
       <template v-else>
+        <!-- Filtered Results -->
         <template v-if="filteredResults.length > 0">
           <template v-for="data in filteredResults" :key="data">
             <div>
               <NuxtLink :to="`/${props.page}/${data.id}`">
-                <p>{{ data.name }}</p>
+                <p class="listItem">{{ data.name }}</p>
               </NuxtLink>
             </div>
           </template>
         </template>
         <template v-else>
+          <!-- Non Filtered Results -->
           <template v-for="data in listData" :key="data">
             <div>
               <NuxtLink :to="`/${props.page}/${data.id}`">
-                <p>{{ data.name }}</p>
+                <p class="listItem">{{ data.name }}</p>
               </NuxtLink>
             </div>
           </template>

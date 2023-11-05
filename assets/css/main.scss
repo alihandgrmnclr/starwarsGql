@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html.dark {
+  color-scheme: dark;
+  body{
+    @apply text-white bg-cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url(/images/background.jpg);
+    .navbar {
+      @apply text-white;
+      &_img {
+        filter: invert(0);
+      }
+    }
+  }
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-image: url(/images/backgroundWhite.png);
+  @apply text-black bg-cover;
+
+  .navbar {
+    &_img {
+      filter: invert(1);
+    }
+  }
+}
+
+
+
+.page {
+  @apply min-h-[calc(100vh-320px)];
+
+  &-header {
+    @apply text-xl font-semibold mb-4 border-b-2 md:text-[30px];
+  }
+
+  .listItem {
+    @apply md:text-lg;
+  }
+}
+
+a {
+  @apply inline-block;
+}
