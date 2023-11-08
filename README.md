@@ -47,5 +47,6 @@ npm run build
 </div>
 <div align="center">
   <img src="public/readme/mobile.png" width="30%">
+  <img src="public/readme/saber.gif" width="30%">
   <img src="public/readme/mobile2.png" width="30%">
 </div>
