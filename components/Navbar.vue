@@ -21,16 +21,18 @@
 
 <style lang="scss" scoped>
 .navbar {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
   @apply flex flex-col sm:flex-row h-[140px] justify-around items-center gap-1 mt-[40px] mb-[40px];
   
   &_img {
     @apply w-[240px]
   }
   &_links {
-    @apply flex gap-2 text-sm mt-4 sm:mt-0 sm:gap-3;
+    @apply flex gap-2 mt-4 sm:mt-0 sm:gap-3;
   }
   .link {
-    @apply  md:text-2xl;
+    @apply  md:text-2xl text-sm;
   }
   .router-link-active {
     @apply underline underline-offset-2;

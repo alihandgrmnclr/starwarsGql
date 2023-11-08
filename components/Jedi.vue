@@ -1,6 +1,6 @@
 <template>
   <div class="jedi">
-    <img class="jedi_char" src="/images/jedi.png" alt="">
+    <img class="jedi_char" src="/images/jedi.png" @load="imageLoaded" alt="jedi">
     <Lightsaber
       class="jedi_saber"
       saber-length="1000px"
@@ -11,13 +11,17 @@
 </template>
 
 <script setup>
-const jediSaberColor = localStorage.getItem('jediSaberColor') || '#03e9f4';
+const isLoadedImg = ref(false)
+const jediSaberColor = localStorage.getItem('jediSaberColor') || '#03e9f4'
+
+const imageLoaded = () => {
+  isLoadedImg.value = true
+}
 </script>
 
 <style lang="scss" scoped>
 .jedi {
-  @apply hidden xs:flex scale-50 relative sm:scale-[.75] xl:scale-100;
-  @apply sm:mt-10;
+  @apply hidden scale-50 relative xs:flex sm:scale-[.75] sm:mt-10 xl:scale-100;
   &_char {
     @apply w-[450px] mt-10 z-10 pointer-events-none;
   }

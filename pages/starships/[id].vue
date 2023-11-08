@@ -5,13 +5,26 @@
     </div>
     <div class="listItem" v-else>
       <h1 class="page-header">{{ starship.name }}</h1>
-      <p>Vehicle Class: {{ starship.starshipClass }}</p>
-      <p>Crew: {{ starship.crew || '0' }}</p>
-      <p>Cargo Capacity: {{ starship.cargoCapacity || '0' }}</p>
-      <p>Max Atmosphering Speed: {{ starship.maxAtmospheringSpeed }} km/h</p>
-      <p>Passangers: {{ starship.passangers || '0' }}</p>
-      <p>Length: {{ starship.length }} m</p>
-      <p>Manufacturers: 
+      <p>
+        <span class="listItem-Header">Vehicle Class:</span> {{ starship.starshipClass }}
+      </p>
+      <p>
+        <span class="listItem-Header">Crew:</span> {{ starship.crew || '0' }}
+      </p>
+      <p>
+        <span class="listItem-Header">Cargo Capacity:</span> {{ starship.cargoCapacity || '0' }}
+      </p>
+      <p>
+        <span class="listItem-Header">Max Atmosphering Speed:</span> {{ starship.maxAtmospheringSpeed }} km/h
+      </p>
+      <p>
+        <span class="listItem-Header">Passangers:</span>{{ starship.passangers || '0' }}
+      </p>
+      <p>
+        <span class="listItem-Header">Length:</span> {{ starship.length }} m
+      </p>
+      <p>
+      <span class="listItem-Header">Manufacturers:</span>
         <template v-for="manufacturer, index in manufacturers" :key="manufacturer">
           {{ manufacturer }}<span v-if="index < manufacturers.length - 1">, </span>
         </template>
@@ -39,9 +52,4 @@ onMounted(async () => {
     loading.value = false
   }
 })
-
 </script>
-
-<style scoped>
-
-</style>

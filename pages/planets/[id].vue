@@ -5,20 +5,30 @@
     </div>
     <div class="listItem" v-else>
       <h1 class="page-header">{{ planet.name }}</h1>
-      <div>Climate:
+      <div>
+        <span class="listItem-Header">Climate:</span>
         <span v-for="climate, index in climates" :key="climate">
           {{ climate }} <span v-if="index < climates.length - 1">, </span>
         </span>
       </div>
-      <div>Terrains: 
+      <div> 
+        <span class="listItem-Header">Terrains:</span>
         <span v-for="terrain, index in terrains" :key="terrain">
         {{ terrain }}<span v-if="index < terrains.length - 1">, </span>
       </span>
       </div>
-      <p>Gravity: {{ planet.gravity }}</p>
-      <p>Population: {{ formatNumber(planet.population) }}</p>
-      <p>Surface Water: {{ planet.surfaceWater }}</p>
-      <p>Rotation Period: {{ planet.rotationPeriod }}h</p>
+      <p>
+        <span class="listItem-Header">Gravity:</span> {{ planet.gravity }}
+      </p>
+      <p>
+        <span class="listItem-Header">Population:</span> {{ formatNumber(planet.population) }}
+      </p>
+      <p>
+        <span class="listItem-Header">Surface Water:</span> {{ planet.surfaceWater }}
+      </p>
+      <p>
+        <span class="listItem-Header">Rotation Period:</span> {{ planet.rotationPeriod }}h
+      </p>
     </div>
   </div>
 </template>
@@ -46,7 +56,3 @@ onMounted(async () => {
   }
 })
 </script>
-
-<style scoped>
-
-</style>

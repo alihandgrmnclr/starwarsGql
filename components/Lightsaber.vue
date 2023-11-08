@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container select-none">
       <div class="handle" @click="toggleSaber"></div>
       <div v-if="showSaber" class="light-saber"></div>
     </div>
@@ -27,9 +27,7 @@ watch(() => props.saberColor, (newColor) => {
   @apply flex h-[100px] justify-start items-center relative z-[1];
 }
 .handle {
-  @apply cursor-pointer w-[104px] h-[436px] z-10 rotate-90;
-  background-image: url(/images/saber1.png);
-  filter: brightness(0.75)
+  @apply cursor-pointer w-[104px] h-[436px] z-10 rotate-90 brightness-75 bg-[url('/images/saber1.png')];
 }
 
 .light-saber {

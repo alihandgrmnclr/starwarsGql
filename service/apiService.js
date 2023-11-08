@@ -14,6 +14,7 @@ const graph = graphql(
     },
   }
 )
+
 export const getAllFilms = async () => {
   const apiCall = await graph(`query allFilms {
     allFilms {

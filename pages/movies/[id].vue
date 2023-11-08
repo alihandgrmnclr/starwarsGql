@@ -5,14 +5,17 @@
     </div>
     <div class="listItem" v-else>
       <h1 class="page-header">{{ film?.title }}</h1>
-      <p>Release Date: {{ film?.releaseDate }}</p>
-      <p>Director: {{ film?.director }}</p>
-      <div>Producers: 
+      <p>
+        <span class="listItem-Header">Release Date:</span> {{ film?.releaseDate }}</p>
+      <p>
+        <span class="listItem-Header"> Director:</span> {{ film?.director }}</p>
+      <div>
+        <span class="listItem-Header">Producers:</span>
         <span v-for="producer, index in producers" :key="producer">
           {{ producer }} <span v-if="index < producers.length - 1">, </span>
         </span>
       </div>
-      <h4 class="my-5">Opening Crawl</h4>
+      <h4 class="my-5 listItem-Header">Opening Crawl</h4>
       <p>{{ text }} <span class="text blinking-element"></span></p>
       <Btn class="w-60" @click="regenerateText">Regenerate Crawl</Btn>
     </div>

@@ -1,9 +1,9 @@
 <template>
-  <div class="settings">
+  <div class="settings page">
     <div class="settings_color">
       <span>Jedi Saber Color: {{ jediSaber }}</span>
       <input type="color" v-model="jediSaber" @input="setJediSaber">
-      <button class="" @click="restoreJediSaberColor">Restore</button>
+      <button class="restore" @click="restoreJediSaberColor">Restore</button>
     </div>
     <div class="settings_saber_container">
       <Lightsaber 
@@ -15,7 +15,7 @@
     <div class="settings_color">
       <span>Darth Saber Color: {{ darthSaber }}</span>
       <input type="color" v-model="darthSaber" @input="setDarthSaber">
-      <button @click="restoreDarthSaberColor">Restore</button>
+      <button class="restore" @click="restoreDarthSaberColor">Restore</button>
     </div>
     <div class="settings_saber_container">
       <Lightsaber
@@ -64,13 +64,16 @@ onBeforeMount(() => {
 <style lang="scss" scoped>
 .settings {
   &_color {
-  @apply flex gap-2;
+  @apply flex items-center gap-2;
   }
   &_saber_container {
     @apply flex justify-start;
   }
   &_saber {
     @apply scale-[0.25] md:scale-[0.5] sm:ml-[55px];
+  }
+  .restore {
+    @apply p-2;
   }
 }
 </style>

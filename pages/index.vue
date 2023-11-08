@@ -25,7 +25,7 @@ const isDark = useDark()
 <style lang="scss" scoped>
 .index {
   .information {
-  @apply mt-[40px] w-full lg:w-[500px] xl:w-[650px] sm:text-lg;
+  @apply select-none mt-[40px] w-full lg:w-[500px] xl:w-[650px] sm:text-lg;
   &_header {
     @apply text-xl font-semibold; 
   }
@@ -37,10 +37,7 @@ const isDark = useDark()
   }
 }
   .char {
-    @apply flex justify-center right-[10%] top-40;
-    @apply sm:flex;
-    @apply lg:absolute ;
-    @apply lg:left-[40%];
+    @apply flex justify-center right-[10%] sm:top-40 lg:absolute lg:left-[40%];
   }
 }
 </style>

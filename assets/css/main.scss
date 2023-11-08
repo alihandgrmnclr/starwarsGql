@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap');
+
 html.dark {
   color-scheme: dark;
   body{
-    @apply text-white bg-cover;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-image: url(/images/background.jpg);
+    @apply text-white bg-cover bg-[url('/images/background.jpg')];
     .navbar {
       @apply text-white;
       &_img {
@@ -18,18 +18,14 @@ html.dark {
 }
 
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-image: url(/images/backgroundWhite.png);
-  @apply text-black bg-cover;
-
+  font-family: 'Raleway', sans-serif;
+  @apply text-black bg-cover bg-[url('/images/backgroundWhite.png')];
   .navbar {
     &_img {
       filter: invert(1);
     }
   }
 }
-
-
 
 .page {
   @apply min-h-[calc(100vh-320px)];
@@ -40,6 +36,9 @@ body {
 
   .listItem {
     @apply md:text-lg;
+    &-Header {
+      @apply mr-2 font-extrabold;
+    }
   }
 }
 

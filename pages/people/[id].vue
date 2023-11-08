@@ -4,19 +4,34 @@
       <Loading></Loading>
     </div>
     <div class="listItem" v-else>
-      <div >
+      <div>
         <p class="page-header">{{ person.name }}</p>
       </div>
-      <p>Birthday: {{ person.birthYear }}</p>
-      <p>Gender: {{ person.gender }}</p>
-      <p>Eye Color: {{ person.eyeColor }}</p>
-      <p>Hair Color: {{ person.hairColor }}</p>
-      <p>Height: {{ person.height }}cm</p>
-      <p>Weight: {{ person.mass }}kg</p>
-      <p>Skin Color: {{ person.skinColor }}</p>
-      <p>Homeworld: 
+      <p>
+        <span class="listItem-Header">Birthday:</span> {{ person.birthYear }}
+      </p>
+      <p>
+        <span class="listItem-Header">Gender:</span> {{ person.gender }}
+      </p>
+      <p>
+        <span class="listItem-Header">Eye Color:</span> {{ person.eyeColor }}
+      </p>
+      <p>
+        <span class="listItem-Header">Hair Color:</span> {{ person.hairColor }}
+      </p>
+      <p>
+        <span class="listItem-Header">Height:</span> {{ person.height }} cm
+      </p>
+      <p>
+        <span class="listItem-Header">Weight:</span> {{ person.mass }} kg
+      </p>
+      <p>
+        <span class="listItem-Header">Skin Color:</span> {{ person.skinColor }}
+      </p>
+      <p>
+        <span class="listItem-Header">Homeworld: </span>
         <template v-if="person.homeworld.name !== 'unknown'">
-          <NuxtLink :to="`/planets/${person.homeworld.id}`">
+          <NuxtLink class="text-blue-700 font-semibold" :to="`/planets/${person.homeworld.id}`">
             {{ person.homeworld.name }}
           </NuxtLink>
         </template>
