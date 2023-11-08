@@ -18,25 +18,12 @@
         <p>There is no result for that search</p>
       </template>
       <template v-else>
-        <!-- Filtered Results -->
-        <template v-if="filteredResults.length > 0">
-          <template v-for="data in filteredResults" :key="data">
-            <div>
-              <NuxtLink :to="`/${props.page}/${data.id}`">
-                <p class="listItem">{{ data.name }}</p>
-              </NuxtLink>
-            </div>
-          </template>
-        </template>
-        <template v-else>
-          <!-- Non Filtered Results -->
-          <template v-for="data in listData" :key="data">
-            <div>
-              <NuxtLink :to="`/${props.page}/${data.id}`">
-                <p class="listItem">{{ data.name }}</p>
-              </NuxtLink>
-            </div>
-          </template>
+        <template v-for="data in listItems" :key="data">
+          <div>
+            <NuxtLink :to="`/${props.page}/${data.id}`">
+              <p class="listItem">{{ data.name }}</p>
+            </NuxtLink>
+          </div>
         </template>
       </template>
       <Paginator 
@@ -51,7 +38,6 @@
 </template>
 
 <script setup>
-
 const props = defineProps({
   title: { type: String },
   page: { type: String },
@@ -67,6 +53,11 @@ const dataAmount = ref(0)
 const filteredResults = ref([])
 const filteredText = ref('')
 const noResult = ref(false)
+
+const listItems = computed(() => {
+  if (filteredText.value.length > 0) return filteredResults.value
+  return listData.value
+})
 
 const handlePage = async (page) => {
   filteredResults.value = []
