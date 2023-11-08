@@ -24,7 +24,7 @@
         <span class="listItem-Header">Population:</span> {{ formatNumber(planet.population) }}
       </p>
       <p>
-        <span class="listItem-Header">Surface Water:</span> {{ planet.surfaceWater }}
+        <span class="listItem-Header">Surface Water:</span> {{ planet.surfaceWater || 'none'}}
       </p>
       <p>
         <span class="listItem-Header">Rotation Period:</span> {{ planet.rotationPeriod }}h
