@@ -1,6 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig ({
   ssr: false,
+  app: {
+    head: {
+      title: 'Star Wars Wiki',
+      link: [{
+        hid: 'icon',
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+    }]
+    }
+  },
   devtools: { enabled: true },
   modules: [
     '@vueuse/nuxt',

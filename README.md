@@ -1,64 +1,51 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Star Wars Wiki
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Project Description
 
-## Setup
+Star Wars Wiki is a web application created using Nuxt 3 and the Star Wars GraphQL API, providing access to comprehensive information about the Star Wars universe. This project aims to offer an original resource for Star Wars enthusiasts.
 
-Make sure to install the dependencies:
+## Live Demo
 
-```bash
-# npm
+[![Netlify Status](https://api.netlify.com/api/v1/badges/74c94b6b-da93-4816-b7b2-97fdfe9d606a/deploy-status)](https://app.netlify.com/sites/starwarsgql/deploys) <br>
+<a href="https://starwarsgql.netlify.app/">Live Demo Link</a>
+
+## Installing Project
+
+```sh
+git clone https://github.com/alihandgrmnclr/starwarsGql.git
+```
+
+#### Installing Dependencies
+
+```sh
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
 ```
 
-## Development Server
+#### Compile and Hot-Reload for Development
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+```sh
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
 
-## Production
+#### Compile and Minify for Production
 
-Build the application for production:
-
-```bash
-# npm
+```sh
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
 ```
 
-Locally preview production build:
+## Tech Stack
 
-```bash
-# npm
-npm run preview
+- Nuxt 3
+- GraphQL
+- Lodash
+- PrimeVue
+- Tailwind
+- VueUse
 
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-# starwarsGql
+<div align="center" class="bg-blue-500">
+   <img src="public/readme/laptop.png">
+</div>
+<div align="center">
+  <img src="public/readme/mobile.png" width="30%">
+  <img src="public/readme/mobile2.png" width="30%">
+</div>
