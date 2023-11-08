@@ -51,7 +51,7 @@ watch(() => props.modelValue, () => {
     @apply absolute right-0;
   }
   &_input {
-    @apply bg-white mb-4 text-black p-1 rounded-md border border-yellow-300;
+    @apply w-24 sm:w-40 bg-white mb-4 text-black p-1 rounded-md border border-yellow-300;
   }
 }
 
