@@ -7,7 +7,7 @@ Star Wars Wiki is a web application created using Nuxt 3 and the Star Wars Graph
 ## Live Demo
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/74c94b6b-da93-4816-b7b2-97fdfe9d606a/deploy-status)](https://app.netlify.com/sites/starwarsgql/deploys) <br>
-<a href="https://starwarsgql.netlify.app/">Live Demo Link</a>
+<a href="https://starwarsgql.netlify.app/" target="_blank">Live Demo Link</a>
 
 ## Installing Project
 
