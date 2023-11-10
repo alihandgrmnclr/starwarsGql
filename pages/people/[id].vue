@@ -4,41 +4,50 @@
       <Loading></Loading>
     </div>
     <div class="listItem" v-else>
-      <div>
-        <p class="page-header">{{ person.name }}</p>
-      </div>
-      <p>
-        <span class="listItem-Header">Birthday:</span> {{ person.birthYear }}
-      </p>
-      <p>
-        <span class="listItem-Header">Gender:</span> {{ person.gender }}
-      </p>
-      <p>
-        <span class="listItem-Header">Eye Color:</span> {{ person.eyeColor }}
-      </p>
-      <p>
-        <span class="listItem-Header">Hair Color:</span> {{ person.hairColor }}
-      </p>
-      <p>
-        <span class="listItem-Header">Height:</span> {{ person.height }} cm
-      </p>
-      <p>
-        <span class="listItem-Header">Weight:</span> {{ person.mass }} kg
-      </p>
-      <p>
-        <span class="listItem-Header">Skin Color:</span> {{ person.skinColor }}
-      </p>
-      <p>
-        <span class="listItem-Header">Homeworld: </span>
-        <template v-if="person.homeworld.name !== 'unknown'">
-          <NuxtLink class="text-blue-700 font-semibold" :to="`/planets/${person.homeworld.id}`">
-            {{ person.homeworld.name }}
-          </NuxtLink>
-        </template>
-        <template v-else>
-          <span>unknown</span>
-        </template>
-      </p>
+      <h1 class="page-header">{{ person.name }}</h1>
+      <ListItem
+        label="Birthday"
+        :value="person.birthYear"
+      >
+      </ListItem>
+      <ListItem
+        label="Gender"
+        :value="person.gender"
+      >
+      </ListItem>
+      <ListItem
+        label="Eye Color"
+        :value="person.eyeColor"
+      >
+      </ListItem>
+      <ListItem
+        label="Hair Color"
+        :value="person.hairColor"
+      >
+      </ListItem>
+      <ListItem
+        suffix="cm"
+        label="Height"
+        :value="person.height"
+      >
+      </ListItem>
+      <ListItem
+        suffix="kg"
+        label="Body Weight"
+        :value="person.mass"
+      >
+      </ListItem>
+      <ListItem
+        label="Skin Color"
+        :value="person.skinColor"
+      >
+      </ListItem>
+      <ListItem
+        label="Homeworld"
+        :link="`/planets/${person.homeworld.id}`"
+        :value="person.homeworld.name"
+      >
+      </ListItem>
     </div>
   </div>
 </template>

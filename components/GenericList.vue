@@ -45,7 +45,7 @@ const props = defineProps({
   fetchDataCountFunction: { type: Function }
 }) 
 
-const { allDataCount, isFetching, listData, pageDetails, handlePageChange } = pageHandler()
+const { allDataCount, isFetching, listData, pageDetails, handlePageChange } = usePage()
 
 const dataPerPage = 20
 const loading = ref(true)
@@ -79,7 +79,6 @@ onMounted(async () => {
     const response = await props.fetchDataFunction(dataPerPage, null)
     const fetchData = response[allData]
 
-    pageDetails.value = fetchData.pageInfo
     pageDetails.value.pageInfo = fetchData.pageInfo
     pageDetails.value.pageName = props.page
     listData.value = fetchData[props.page]

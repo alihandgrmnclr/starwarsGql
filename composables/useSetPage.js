@@ -3,7 +3,7 @@ import { getAllPeople } from '@/service/apiService'
 import { getAllVehicles } from '@/service/apiService'
 import { getAllStarships } from '@/service/apiService'
 
-export const setPage = async (action, pageDetails, perPage, allDataCount) => {
+export const useSetPage = async (action, pageDetails, perPage, allDataCount) => {
   const actions = {
     next: async () => await fetchFunction(perPage, null, null, pageDetails.pageInfo.endCursor),
     prev: async () => await fetchFunction(null, perPage, pageDetails.pageInfo.startCursor, null),

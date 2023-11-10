@@ -28,5 +28,8 @@ export default defineNuxtConfig ({
   ],
   build: {
 		transpile: ["primevue"]
-	}
+	},
+  vue: {
+    propsDestructure: true
+  }
 })

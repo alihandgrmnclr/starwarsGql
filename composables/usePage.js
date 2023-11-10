@@ -1,6 +1,6 @@
-import { setPage } from './setPage'
+import { useSetPage } from './useSetPage'
 
-export const pageHandler = () => {
+export const usePage = () => {
   const currentPage = ref(1)
   const isFetching = ref(false)
   const listData = ref([])
@@ -13,18 +13,18 @@ export const pageHandler = () => {
     let response
 
     if (page.number > currentPage.value + 1) { // Go to last page
-      response = await setPage('last', pageDetails.value, perPage.value, allDataCount.value)
+      response = await useSetPage('last', pageDetails.value, perPage.value, allDataCount.value)
       currentPage.value = page.pageCount
     } else if (page.number > currentPage.value) { // Go to the next page
-      response = await setPage('next', pageDetails.value, perPage.value)
+      response = await useSetPage('next', pageDetails.value, perPage.value)
       currentPage.value ++
     } 
 
     if (page.number + 1 < currentPage.value) { // Go to first page
-      response = await setPage('first', pageDetails.value, perPage.value)
+      response = await useSetPage('first', pageDetails.value, perPage.value)
       currentPage.value = 1
     } else if (page.number < currentPage.value) { // Go to the previous page
-      response = await setPage('prev', pageDetails.value, perPage.value)
+      response = await useSetPage('prev', pageDetails.value, perPage.value)
       currentPage.value --
     }
 

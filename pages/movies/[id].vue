@@ -4,17 +4,22 @@
       <Loading></Loading>
     </div>
     <div class="listItem" v-else>
-      <h1 class="page-header">{{ film?.title }}</h1>
-      <p>
-        <span class="listItem-Header">Release Date:</span> {{ film?.releaseDate }}</p>
-      <p>
-        <span class="listItem-Header"> Director:</span> {{ film?.director }}</p>
-      <div>
-        <span class="listItem-Header">Producers:</span>
-        <span v-for="producer, index in producers" :key="producer">
-          {{ producer }} <span v-if="index < producers.length - 1">, </span>
-        </span>
-      </div>
+      <h1 class="page-header">{{ film.title }}</h1>
+      <ListItem
+        label="Release Date"
+        :value="film.releaseDate"      
+      >
+      </ListItem>
+      <ListItem
+        label="Director"
+        :value="film.releaseDate"      
+      >
+      </ListItem>
+      <ListItem
+        label="Producers"
+        :value="producers"      
+      >
+      </ListItem>
       <h4 class="my-5 listItem-Header">Opening Crawl</h4>
       <p>{{ text }} <span class="text blinking-element"></span></p>
       <Btn class="w-60" @click="regenerateText">Regenerate Crawl</Btn>
@@ -24,14 +29,17 @@
 
 <script setup>
 import { getFilm } from '@/service/apiService'
+
 const idParam = useRoute().params.id
 const film = ref()
-const producers = ref([])
 const openingCrawl = ref(null)
 const text = ref('')
 const textIndex = ref(0)
 const loading = ref(true)
+
 let interval
+
+const producers = computed(() => film.value.producers.join(", "))
 
 const typeAnimation = () => {
   interval = setInterval(() => {
