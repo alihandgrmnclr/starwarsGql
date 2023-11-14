@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Star Wars | Movies</Title>
+  </Head>
   <div class="page">
     <h1 class="page-header">Movies</h1>
     <div v-if="loading">

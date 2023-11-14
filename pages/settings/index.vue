@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Star Wars | Settings</Title>
+  </Head>
   <div class="settings page">
     <div class="settings_color">
       <span>Jedi Saber Color: {{ jediSaber }}</span>

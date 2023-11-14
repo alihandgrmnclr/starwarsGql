@@ -1,9 +1,13 @@
 <template>
+  <Head>
+    <Title>Vehicles | {{ vehicle?.name }}</Title>
+  </Head>
   <div class="page">
     <div v-if="loading">
       <Loading></Loading>
     </div>
     <div class="listItem" v-else>
+      <h1 class="page-header">{{ vehicle.name }}</h1>
       <ListItem
         label="Vehicle Class"
         :value="vehicle.vehicleClass"

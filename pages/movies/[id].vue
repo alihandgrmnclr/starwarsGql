@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Movies | {{ film?.title }}</Title>
+  </Head>
   <div class="movie page">
     <div v-if="loading">
       <Loading></Loading>

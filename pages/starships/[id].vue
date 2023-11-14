@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Starships | {{ starship?.name }}</Title>
+  </Head>
   <div class="page">
     <div v-if="loading">
       <Loading></Loading>
